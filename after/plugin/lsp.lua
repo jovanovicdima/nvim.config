@@ -7,7 +7,7 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, { buffer = bufnr, desc = 'Show first next error message' })
   vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, { buffer = bufnr, desc = 'Show first previous error message' })
   vim.keymap.set('n', 'de', function() vim.diagnostic.open_float() end, { buffer = bufnr, desc = 'Show diagnostic error messages' })
-  vim.keymap.set('n', 'dq', vim.diagnostic.setloclist, { buffer = bufnr, desc = 'Open diagnostic quickfix list' })
+  vim.keymap.set('n', 'df', vim.diagnostic.setloclist, { buffer = bufnr, desc = 'Open diagnostic quickfix list' })
   vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, { buffer = bufnr, desc = 'Code actions' })
   vim.keymap.set("n", "<leader>rr", function() vim.lsp.buf.references() end, { buffer = bufnr, desc = 'Show references' })
   vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, { buffer = bufnr, desc = 'Rename token' })
@@ -36,7 +36,6 @@ require('mason-lspconfig').setup({
     end,
   }
 })
-
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
