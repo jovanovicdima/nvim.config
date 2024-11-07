@@ -32,11 +32,14 @@ vim.opt.updatetime = 50
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 
-vim.api.nvim_create_autocmd('TextYankPost', {
-  group = vim.api.nvim_create_augroup('highlight_yank', {}),
-  desc = 'Hightlight selection on yank',
-  pattern = '*',
-  callback = function()
-    vim.highlight.on_yank { higroup = 'IncSearch', timeout = 100 }
-  end,
+-- clipboard
+vim.opt.clipboard = "unnamedplus"
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = vim.api.nvim_create_augroup("highlight_yank", {}),
+	desc = "Hightlight selection on yank",
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
+	end,
 })
